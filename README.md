@@ -1,1 +1,1 @@
-#Repository for Django Learning Projects
+###Repository for Django Learning Projects
