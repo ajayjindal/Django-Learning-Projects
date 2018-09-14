@@ -1,0 +1,78 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>top</title>
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	<style type="text/css">
+		.logo{
+			margin-top: 15%;
+			width: 50px;
+		}
+	</style>
+</head>
+<body class="blue-grey lighten-5">
+	<nav class="teal lighten-5">
+		<div class="container nav-wrapper">
+			<a href="#!" class="brand-logo center"><img class="logo responsive-img" src="{% static "logo.png" %}"></a> 
+			<a href="#!" class="brand-logo black-text">Product Hunt</a>
+			<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li><a href="" class="black-text">Sign Up</a></li>
+				<li><a href="" class="black-text">Login</a></li>
+			</ul>
+		</div>
+	</nav>
+	<ul class="sidenav" id="mobile-demo">
+		<li><a href="">Sign Up</a></li>
+		<li><a href="">Login</a></li>
+	</ul>
+	<br>
+	<div class="container">
+		{% block content %}
+		    
+		{% endblock content %}
+	</div>
+	<br>
+	<footer class="page-footer cyan darken-3">
+		<div class="container">
+			<div class="row">
+				<div class="col l11 s12">
+					<h5 class="white-text">Product Hunter</h5>
+					<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+				</div>
+				<div class="col l1 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				© {% now "Y" %} Copyright
+				<a class="grey-text text-lighten-4 right" href="#!">home</a>
+			</div>
+		</div>
+	</footer>
+
+
+	<script type="text/javascript">
+	var elem = document.querySelector('.sidenav');
+	var instance = M.Sidenav.init(elem, {
+		inDuration: 400,
+		outDuration: 100,
+		edge: 'left'
+	});
+	</script>
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>
