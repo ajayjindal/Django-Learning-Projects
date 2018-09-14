@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>top</title>
+	<title>Product Hunt</title>
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -17,18 +17,27 @@
 <body class="blue-grey lighten-5">
 	<nav class="teal lighten-5">
 		<div class="container nav-wrapper">
-			<a href="#!" class="brand-logo center"><img class="logo responsive-img" src="{% static "logo.png" %}"></a> 
-			<a href="#!" class="brand-logo black-text">Product Hunt</a>
+			<a href="{% url "home" %}" class="brand-logo center"><img class="logo responsive-img" src="{% static "logo.png" %}"></a> 
+			<a href="{% url "home" %}" class="brand-logo black-text">Product Hunt</a>
 			<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="" class="black-text">Sign Up</a></li>
-				<li><a href="" class="black-text">Login</a></li>
+				{% if user.is_authenticated %}
+					<li><a href="javascript:{document.getElementById('logout').submit()}" class="black-text">Logout</a></li>
+					<form id="logout" method="POST" action="{% url "logout" %}">
+						{% csrf_token %}
+						<input type="hidden" />
+					</form>
+				{% else %}
+				    <li><a href="{% url "signup" %}" class="black-text">Sign Up</a></li>
+					<li><a href="{% url "login" %}" class="black-text">Login</a></li>
+				{% endif %}
+				
 			</ul>
 		</div>
 	</nav>
 	<ul class="sidenav" id="mobile-demo">
-		<li><a href="">Sign Up</a></li>
-		<li><a href="">Login</a></li>
+		<li><a href="{% url "signup" %}">Sign Up</a></li>
+		<li><a href="{% url "login" %}">Login</a></li>
 	</ul>
 	<br>
 	<div class="container">
