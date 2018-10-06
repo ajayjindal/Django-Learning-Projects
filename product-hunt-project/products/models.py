@@ -14,7 +14,7 @@ class product(models.Model):
 	hunter = models.ForeignKey(User,on_delete=models.CASCADE)
 
 	def pub_date_pretty(self):
-		return pub_date.strftime('%b %e %Y')
+		return self.pub_date.strftime('%b %e, %Y')
 
 	def summary(self):
 		return self.body[:100]
