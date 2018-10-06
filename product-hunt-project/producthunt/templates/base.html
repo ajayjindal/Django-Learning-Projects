@@ -19,7 +19,7 @@
 	<nav class="teal lighten-5">
 		<div class="container nav-wrapper">
 			<a href="{% url "home" %}" class="brand-logo center"><img class="logo responsive-img" src="{% static "logo.png" %}"></a> 
-			<a href="{% url "home" %}" class="brand-logo black-text">Product Hunt</a>
+			<a href="{% url "home" %}" class="flow-text black-text">Product Hunt</a>
 			<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons black-text">menu</i></a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				{% if user.is_authenticated %}
